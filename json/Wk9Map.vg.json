@@ -41,7 +41,7 @@
           "scale": {
             "type": "threshold",
             "domain": [150, 200, 250, 300, 350], 
-            "range": ["#e0b3f0", "#d58ff2", "#b77bdb", "#9b5bb4", "#7b3f8e"]
+            "range": ["#dbcc23", "#db8325", "#ed7a40", "#ed4040", "#e60000"]
           },
           "legend": {
             "title": "Immigrants Per 1000",
