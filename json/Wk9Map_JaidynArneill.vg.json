@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Immigrant Density Across Australia",
+    "font": "Dubai",
+    "fontSize": 20
+  },
+  "width": 800,
+  "height": 400,
+  "background": "#f5fcff",
+  "projection": {
+    "type": "mercator"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/jaidynarneill/Wk9_Homework_JaidynArneill/refs/heads/main/json/Australian_States_JaidynArneill.json",
+    "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jaidynarneill/Wk9_Homework_JaidynArneill/refs/heads/main/data/Wk9Homework.csv"
+        },
+        "key": "States",
+        "fields": ["Immigrants Per 1000 People"]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#000",  
+        "strokeWidth": 0.5  
+      },
+      "encoding": {
+        "color": {
+          "field": "Immigrants Per 1000 People",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [150, 200, 250, 300, 350], 
+            "range": ["#e0b3f0", "#d58ff2", "#b77bdb", "#9b5bb4", "#7b3f8e"]
+          },
+          "legend": {
+            "title": "Immigrants Per 1000",
+            "titleFont": "Dubai",
+            "titleFontSize": 16,
+            "labelFont": "Dubai",
+            "labelFontSize": 12,
+            "labelFontWeight": "normal",
+            "orient": "right", 
+            "padding": 10,
+            "gradientLength": 200,
+            "gradientThickness": 20,
+            "gradientStrokeColor": "#000",
+            "gradientStrokeWidth": 1
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "Immigrants Per 1000 People",
+            "type": "quantitative",
+            "title": "Immigrants Per 1000 People"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jaidynarneill/Wk9_Homework_JaidynArneill/refs/heads/main/json/Australian_States_JaidynArneill.json",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+      },
+      "mark": {"type": "geoshape", "stroke": "#000", "strokeWidth": 0.5}
+    }
+  ]
+}
