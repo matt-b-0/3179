@@ -12,7 +12,7 @@
     "type": "mercator"
   },
   "data": {
-    "url": "https://github.com/matt-b-0/3179/blob/main/json/Australian_States.json",
+    "url": "https://raw.githubusercontent.com/matt-b-0/3179/refs/heads/main/json/Australian_States.json",
     "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
   },
   "transform": [
@@ -20,7 +20,7 @@
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://github.com/matt-b-0/3179/blob/main/data/Wk9Homework.csv"
+          "url": "https://raw.githubusercontent.com/matt-b-0/3179/refs/heads/main/data/Wk9Homework.csv"
         },
         "key": "States",
         "fields": ["Immigrants Per 1000 People"]
@@ -74,7 +74,7 @@
     },
     {
       "data": {
-        "url": "https://github.com/matt-b-0/3179/blob/main/json/Australian_States.json",
+        "url": "https://raw.githubusercontent.com/matt-b-0/3179/refs/heads/main/json/Australian_States.json",
         "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
       },
       "mark": {"type": "geoshape", "stroke": "#000", "strokeWidth": 0.5}
